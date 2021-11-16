@@ -19,13 +19,12 @@ public class ExArrays3 {
         System.out.println("Introdueix la variable y1");
         ar1[1] = s.nextInt();
 
-
         System.out.println("Introdueix la variable x2");
         ar2[0] = s.nextInt();
         System.out.println("Introdueix la variable y2");
         ar2[1] = s.nextInt();
 
-        //Calculam la distancia entre els vectors
+        //Calculam la distancia dels catets que formen els vectors, x3 i y3
         int x1 = ar1[0];
         int x2 = ar2[0];
         int x3 = Math.abs(x1-x2);
@@ -35,10 +34,10 @@ public class ExArrays3 {
         int y3 = Math.abs(y1-y2);
 
 
-        System.out.println(Arrays.toString(ar1));
-        System.out.println(Arrays.toString(ar2));
-        System.out.println(x3);
-        System.out.println(y3);
+        //Calculam quina seria la hipotenusa dels dos catets
+        System.out.println("La distancia es de: ");
+        System.out.println(Math.hypot(y3, x3));
+
 
     }
 }

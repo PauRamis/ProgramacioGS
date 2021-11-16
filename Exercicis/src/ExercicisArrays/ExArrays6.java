@@ -1,6 +1,6 @@
 package ExercicisArrays;
 
-public class ExerciciArrays6 {
+public class ExArrays6 {
     public static void main(String[] args) {
 
     }
