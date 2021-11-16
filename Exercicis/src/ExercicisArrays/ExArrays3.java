@@ -1,15 +1,44 @@
 package ExercicisArrays;
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Scanner;
 //Escriu una funció que accepti dos vectors de longitud 2 (dos arrays) i computi la distància euclidiana entre ells
 // (l'arrel quadrada de la suma del quadrat de les diferències entre els elements).
 
 public class ExArrays3 {
     public static void main(String[] args) {
 
-        int[] ar1 = new int[10];
-        int[] ar2 = new int[10];
+        Scanner s = new Scanner(System.in);
+//Cream els dos arrays
+        int[] ar1 = new int[2];
+        int[] ar2 = new int[2];
 
+        //L'usuari triarà la longitut dels vectors.
+        System.out.println("Introdueix la variable x1");
+        ar1[0] = s.nextInt();
+        System.out.println("Introdueix la variable y1");
+        ar1[1] = s.nextInt();
+
+
+        System.out.println("Introdueix la variable x2");
+        ar2[0] = s.nextInt();
+        System.out.println("Introdueix la variable y2");
+        ar2[1] = s.nextInt();
+
+        //Calculam la distancia entre els vectors
+        int x1 = ar1[0];
+        int x2 = ar2[0];
+        int x3 = Math.abs(x1-x2);
+
+        int y1 = ar1[1];
+        int y2 = ar2[1];
+        int y3 = Math.abs(y1-y2);
+
+
+        System.out.println(Arrays.toString(ar1));
+        System.out.println(Arrays.toString(ar2));
+        System.out.println(x3);
+        System.out.println(y3);
 
     }
 }
