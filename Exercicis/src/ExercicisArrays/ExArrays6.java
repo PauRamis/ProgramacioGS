@@ -23,13 +23,13 @@ public class ExArrays6 {
 
     private static void columna(boolean[] ar2){
         for (int i = 0; i < ar2.length; i++) {
-            while 0 = ar2 {
-
+            while (!ar2[i]) {
+                System.out.println(" ");
             }
         }
     }
 
-}
+
 
 /*    private static void dibuixCreu(boolean[][] ar){
         int centre = ar.length/2;
