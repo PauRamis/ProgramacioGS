@@ -16,9 +16,14 @@ Perque els ordinadors començen a comptar desde el 0
 
 Si intentasis accedir a una posició negativa de l’array, simplement donarà error, ja que comença desde el 0, i no n’hi ha més darrere.
 
-4 -
+4 - Si «a[]» és un array, per què quan executem «System.out.println(a)» surt un número en hexadecimal, com @f432321?
 
-5 -
+Perque amb a, no li estas digent que mostri cap valor del array, per fer-ho, hauries de utilitzar “System.out.println(a[«valor»])”
+
+
+5 - Si creem un array d'enters de 100 posicions, quin valor tindrà cada element, inicialment?
+Si no els hi asignes valors, per defecte tenen un 0.
+
 
      */
 }

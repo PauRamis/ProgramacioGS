@@ -1,4 +1,5 @@
 package ExercicisArrays;
+
 import java.util.Arrays;
 
 /*
@@ -7,6 +8,7 @@ Alerta: no ha de tornar un array, ha d'invertir el que li passem.
 Recordeu que tots els objectes (tipus no primitius) es passen PER REFERÈNCIA, no per valor.
  */
 import java.util.Scanner;
+
 public class ExArrays4 {
 
     public static void main(String[] args) {
@@ -29,13 +31,15 @@ public class ExArrays4 {
 
     }
 
-    static void inverteixArray(int[] ar){
+    //Aquest funció es l'encarregada de cambiar el nombre més gran, corresponent amb el més petit (De posició, no de valor)
+    static void inverteixArray(int[] ar) {
         int[] artemporal = new int[ar.length];
         for (int i = 0; i < ar.length; i++) {
-            artemporal[ar.length-i-1] = ar[i];
+            artemporal[ar.length - i - 1] = ar[i];
 
         }
-        for (int i = 0; i < ar.length ; i++) {
+        //"artemporal" es l'array que ens ajudara a guardar els valor per no perdre ningun en el canvi
+        for (int i = 0; i < ar.length; i++) {
             ar[i] = artemporal[i];
         }
     }

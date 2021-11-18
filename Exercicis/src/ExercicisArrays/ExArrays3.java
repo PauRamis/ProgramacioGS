@@ -28,11 +28,13 @@ public class ExArrays3 {
         //Calculam la distancia entre els vectors.
         int x1 = ar1[0];
         int x2 = ar2[0];
-        int x3 = Math.abs(x1-x2);
+
+        //Feim el resultat en absolut perque ens es indiferent quin és més gran, nomes volem la distancia.
+        int x3 = Math.abs(x1 - x2);
 
         int y1 = ar1[1];
         int y2 = ar2[1];
-        int y3 = Math.abs(y1-y2);
+        int y3 = Math.abs(y1 - y2);
 
         //Recordam quins són els vectors creats.
         System.out.println("vector 1: ");
