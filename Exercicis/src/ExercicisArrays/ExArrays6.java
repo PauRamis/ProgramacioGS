@@ -13,6 +13,8 @@ public class ExArrays6 {
 
     }
 
+
+    //TIENE QUE SER BIDIMENSIONAL, NO  2 ARRAYS.
     private static void fila(boolean[] ar1) {
         for (int i = 0; i < ar1.length ; i++) {
             Arrays.fill(ar1, Boolean.TRUE);
