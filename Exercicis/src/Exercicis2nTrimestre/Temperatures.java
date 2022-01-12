@@ -42,7 +42,13 @@ public class Temperatures {
 
     }
 
-    private static void calcDades(int nMes, int nDia) {
+    private static String calcDades(int nMes, int nDia) {
+         String data = Temps.data;
+         String[] infoData = data.split("+");
+         String diaData = infoData[nDia]; // 123
+
+        return diaData;
+        }
 
     }
-}
+

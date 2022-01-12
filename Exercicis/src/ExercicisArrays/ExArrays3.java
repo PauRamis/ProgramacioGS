@@ -36,13 +36,13 @@ public class ExArrays3 {
         int y2 = ar2[1];
         int y3 = Math.abs(y1 - y2);
 
-        //Recordam quins són els vectors creats.
+        //Recordam a l'usuari quins són els vectors creats.
         System.out.println("vector 1: ");
         System.out.println(Arrays.toString(ar1));
         System.out.println("vector 2: ");
         System.out.println(Arrays.toString(ar2));
 
-        //Calculam quina seria la hipotenusa dels dos catets.
+        //Calculam i mostram quina seria la hipotenusa dels dos catets.
         System.out.println("La distancia es de: ");
         System.out.println(Math.hypot(y3, x3));
 

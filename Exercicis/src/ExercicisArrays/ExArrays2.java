@@ -9,7 +9,7 @@ public class ExArrays2 {
     public static void main(String[] args) {
         int[] ar1 = new int[1000];
 
-        //El seguent int és el resultat de l'exercici. Però esta bloquejat perque no doni error, ja el maxim es 999 (length -1)
+        //El seguent int és el resultat de l'exercici. Però esta comentat perque no doni error, ja el maxim es 999 (length -1)
         //int a = ar1[ar1.length];
 
         //Aquest seria el més correcte
