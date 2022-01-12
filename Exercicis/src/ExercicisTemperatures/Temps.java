@@ -1,4 +1,4 @@
-package Exercicis2nTrimestre;
+package ExercicisTemperatures;
 
 public class Temps {
     static String data = "STATION,NAME,DATE,PRCP,TAVG,TMAX,TMIN\n" +

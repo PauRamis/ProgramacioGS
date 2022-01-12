@@ -1,5 +1,7 @@
-package Exercicis2nTrimestre;
+package ExercicisTemperatures;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Temperatures {
@@ -12,7 +14,7 @@ public class Temperatures {
             if (opcio == 1) {
 
                 //Dirigim a l'usuari cap a la funcio de les dades
-                MostrarDades();
+               SeleccionarDades();
 
             } else if (opcio == 2) {
 
@@ -31,7 +33,7 @@ public class Temperatures {
         return option;
     }
 
-    private static void MostrarDades(){
+    private static void SeleccionarDades(){
         System.out.println("Mes de l'any?");
         int nMes = sc.nextInt();
         if (1 <= nMes & nMes <= 12) {
@@ -42,13 +44,29 @@ public class Temperatures {
 
     }
 
-    private static String calcDades(int nMes, int nDia) {
+    private static void calcDades(int nMes, int nDia) {
+        //Primer farem un array amb totes les linies de contingut de Temps.
          String data = Temps.data;
-         String[] infoData = data.split("+");
-         String diaData = infoData[nDia]; // 123
+         String[] linea = data.split("\n");
 
-        return diaData;
+         //Ara volem separar les linies per comes en uDada, i veure si els resultats son valids.
+        for (int i = 0; i < linea.length; i++) {
+            String[] uDada = linea[i].split(",", -1);
+            if (uDada.length < 8){
+                continue;
+            }
+
+            //El camp nº4 es el de la data, primer volem fer que coincideixi amb el mes i despres amb el dia
+            //String[] campData = uDada[3].split("-");
+            LocalDate date =  LocalDate.parse(String.valueOf(nMes));
+            System.out.println(date);
+
+            System.out.println("check");
+
+
         }
 
     }
+
+}
 
