@@ -56,12 +56,8 @@ public class Temperatures {
                 continue;
             }
 
-            //El camp nº4 es el de la data, primer volem fer que coincideixi amb el mes i despres amb el dia
-            //String[] campData = uDada[3].split("-");
-            LocalDate date =  LocalDate.parse(String.valueOf(nMes));
-            System.out.println(date);
-
-            System.out.println("check");
+            //El camp nº3 es el de la data, aixi que la pasarem a format de data
+            LocalDate date =  LocalDate.parse((uDada[3]));
 
 
         }
