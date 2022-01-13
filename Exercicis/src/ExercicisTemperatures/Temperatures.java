@@ -61,17 +61,14 @@ public class Temperatures {
 
             int dia = date.getDayOfMonth();
             Month mes = date.getMonth();
+
             if (mes == Month.of(nMes)){
-                System.out.println(mes);
                 if (dia == nDia){
-                    System.out.println(mes);
-                    System.out.println(dia);
-                    System.out.println(date);
+                    System.out.print("Tavg: ");
+                    System.out.println(uDada[5]);
                 }
             }
-
         }
-
     }
 
 }
