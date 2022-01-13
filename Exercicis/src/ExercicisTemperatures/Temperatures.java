@@ -1,7 +1,7 @@
 package ExercicisTemperatures;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.time.Month;
 import java.util.Scanner;
 
 public class Temperatures {
@@ -59,6 +59,16 @@ public class Temperatures {
             //El camp nº3 es el de la data, aixi que la pasarem a format de data
             LocalDate date =  LocalDate.parse((uDada[3]));
 
+            int dia = date.getDayOfMonth();
+            Month mes = date.getMonth();
+            if (mes == Month.of(nMes)){
+                System.out.println(mes);
+                if (dia == nDia){
+                    System.out.println(mes);
+                    System.out.println(dia);
+                    System.out.println(date);
+                }
+            }
 
         }
 
