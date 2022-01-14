@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Temperatures {
     static Scanner sc = new Scanner(System.in);
+    static MesuraDia[] mesueres;
 
     //El main es dedica a mostrar el menu principal, i dirigir a l'usuari cap a les dades o a sortir.
     public static void main(String[] args) {
@@ -49,9 +50,11 @@ public class Temperatures {
          String data = Temps.data;
          String[] linea = data.split("\n");
 
+         mesueres = new MesuraDia[linea.length-1];
+
          //Ara volem separar les linies per comes en uDada, i veure si els resultats son valids.
         for (int i = 0; i < linea.length; i++) {
-            String[] uDada = linea[i].split(",", -1);
+            String[] uDada = linea[i].split(",", -1); //el -1 es per omitir els darrers camps buids
             if (uDada.length < 8){
                 continue;
             }
