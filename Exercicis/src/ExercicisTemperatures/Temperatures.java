@@ -30,6 +30,7 @@ public class Temperatures {
     private static int MostrarMenuPrincipal() {
         System.out.println("1 = Mostrar les dades de un més");
         System.out.println("2 = Sortir");
+        System.out.println("3 = ");
         int option = sc.nextInt();
         return option;
     }
