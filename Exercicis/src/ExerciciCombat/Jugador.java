@@ -29,7 +29,7 @@ public class Jugador {
         }
     }
 
-    void recuperaVida(int punts, int puntsVidaMax, int puntsVida) {
+    void recuperaVida(int punts) {
         this.puntsVida += punts;
         if (this.puntsVida >= this.puntsVidaMax){
             this.puntsVida = this.puntsVidaMax;
@@ -37,7 +37,7 @@ public class Jugador {
     }
 
     void MostrarEstadistiques() {
-        System.out.printf("Nom: %s, Atac: %d, Defensa, Vida: %d");
+        System.out.printf("Nom: %s, Atac: %d, Defensa, Vida: %d", nom, puntsAtac, puntsDefensa, puntsVida);
     }
 
     void Penalitzacio() {
