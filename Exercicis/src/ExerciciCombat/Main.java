@@ -5,6 +5,7 @@ public class Main {
         Jugador Jugador1 = new Jugador("Pau", 10, 5);
         Jugador Jugador2 = new Jugador("Adversari", 5, 15);
 
+        //Aleatoriament es mostra el seu exit, que sirá representat en punts
         int exit1 = 5;
         int exit2 = 6;
 
@@ -14,12 +15,14 @@ public class Main {
         Jugador1.MostrarEstadistiques();
 
         Jugador2.restarVida(exit2);
-        Jugador1.MostrarEstadistiques();
+        Jugador2.MostrarEstadistiques();
         Jugador2.recuperaVida(exit2);
         Jugador2.MostrarEstadistiques();
 
+        //Trien les estrategies
         String estr1 = "Atac";
         String estr2 = "Defensa";
+        ronda(Jugador1, estr1, exit1, Jugador2, estr2, exit2);
 
 
     }

@@ -1,7 +1,5 @@
 package ExerciciCombat;
 
-import java.util.Random;
-
 public class Jugador {
     String nom;
     int nivell;
@@ -31,16 +29,18 @@ public class Jugador {
 
     void recuperaVida(int punts) {
         this.puntsVida += punts;
-        if (this.puntsVida >= this.puntsVidaMax){
+        if (this.puntsVida > this.puntsVidaMax){
             this.puntsVida = this.puntsVidaMax;
         }
     }
 
     void MostrarEstadistiques() {
-        System.out.printf("Nom: %s, Atac: %d, Defensa, Vida: %d", nom, puntsAtac, puntsDefensa, puntsVida);
+        System.out.printf("Nom: %s, Atac: %d, Defensa, Vida: %d\n", nom, puntsAtac, puntsDefensa, puntsVida);
     }
 
     void Penalitzacio() {
+
+        //Math.random decidira si restar atac o defensa.
         if (Math.random() == 0) {
             this.puntsAtac -= punts;
 
