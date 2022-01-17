@@ -12,33 +12,32 @@ public class Jugador {
     int puntsDefensa;
 
     //Constructors
-    public Jugador(String nom, int puntsAtac, int puntsDefensa, int punts, int puntsVida, int puntsVidaMax, int nivell) {
+    public Jugador(String nom, int puntsAtac, int puntsDefensa) {
         this.nom = nom;
         this.puntsAtac = puntsAtac;
         this.puntsDefensa = puntsDefensa;
-        this.punts = punts;
-        this.puntsVida = puntsVida;
-        this.puntsVidaMax = puntsVidaMax;
-        this.nivell = nivell;
+        this.puntsVida = 10;
+        this.puntsVidaMax = 10;
+        this.nivell = 0;
     }
 
 
     void restarVida(int punts) {
         this.puntsVida -= punts;
         if (this.puntsVida < 0) {
-            puntsVida = 0;
+            this.puntsVida = 0;
         }
     }
 
     void recuperaVida(int punts, int puntsVidaMax, int puntsVida) {
         this.puntsVida += punts;
-        if (this.puntsVida => this.puntsVidaMax){
-            puntsVida = puntsVidaMax;
+        if (this.puntsVida >= this.puntsVidaMax){
+            this.puntsVida = this.puntsVidaMax;
         }
     }
 
     void MostrarEstadistiques() {
-        System.out.printf("Nom: %s, Atac: %d, Defensa, Exp: %d, Vida: %d, VidaMax: %d, Nivell: %d");
+        System.out.printf("Nom: %s, Atac: %d, Defensa, Vida: %d");
     }
 
     void Penalitzacio() {

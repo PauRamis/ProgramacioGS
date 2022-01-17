@@ -2,8 +2,8 @@ package ExerciciCombat;
 
 public class Main {
     public static void main(String[] args) {
-        Jugador Jugador1 = new Jugador("Pau", 10, 5, 10, 10, 10, 1);
-        Jugador Jugador2 = new Jugador("Adversari", 5, 15, 10, 10, 10, 1);
+        Jugador Jugador1 = new Jugador("Pau", 10, 5);
+        Jugador Jugador2 = new Jugador("Adversari", 5, 15);
 
         Jugador1.restarVida(0);
         Jugador1.recuperaVida();
