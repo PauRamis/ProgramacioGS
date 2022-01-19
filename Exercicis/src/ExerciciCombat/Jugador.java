@@ -35,13 +35,13 @@ public class Jugador {
     }
 
     void MostrarEstadistiques() {
-        System.out.printf("Nom: %s, Atac: %d, Defensa, Vida: %d\n", nom, puntsAtac, puntsDefensa, puntsVida);
+        System.out.printf("Nom: %s, Atac: %d, Defensa: %d, Vida: %d\n", this.nom, this.puntsAtac, this.puntsDefensa, this.puntsVida);
     }
 
-    void Penalitzacio() {
+    void Penalitzacio(int punts) {
 
         //Math.random decidira si restar atac o defensa.
-        if (Math.random() == 0) {
+        if (Math.random() < 0.5) {
             this.puntsAtac -= punts;
 
         } else {
@@ -50,5 +50,14 @@ public class Jugador {
         }
     }
 
+    //TiraMonedes simula tirar una moneda a cara creu tantes vegades com habilitat tengui el jugador, per estabir els punts en una acció. (exit)
+    int TiraMonedes(int repeticions){
+        int contador = 0;
+        for (int i = 0; i < repeticions; i++) {
+            if (Math.random() < 0.5) {
+            contador++;
+            }
+        } return contador;
+    }
 
 }
