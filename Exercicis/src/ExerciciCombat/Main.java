@@ -9,98 +9,87 @@ public class Main {
         Jugador Jugador1 = new Jugador("Pau", 10, 5);
         Jugador Jugador2 = new Jugador("Adversari", 5, 15);
 
-        /*Proves
-        Jugador1.MostrarEstadistiques();
-        Jugador1.Penalitzacio(5);
-        Jugador1.MostrarEstadistiques();
-
-        Jugador2.MostrarEstadistiques();
-        Jugador2.restarVida(5);
-        Jugador2.MostrarEstadistiques();
-        Jugador2.recuperaVida(5);
-        Jugador2.MostrarEstadistiques();
-        */
-
         ronda(Jugador1, Jugador2);
 
     }
     static void ronda(Jugador Jugador1, Jugador Jugador2){
         int estr1 = accioJugador();
         int estr2 = accioAdversari();
+        //Proves
+        estr2 = 2;
+        System.out.println("L'adversari ha triat: ");
+        System.out.println(estr2);
 
-//Jugador accio 1
+    //Jugador accio 1
 
-        //Jugador2 recupera vida
         if (estr1 == 1 && estr2 == 2){
             Jugador2.recuperaVida(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
+            System.out.println("Jugador2 recupera vida");
         }
 
-        //Jugador1 danya a Jugador2
         if (estr1 == 1 && estr2 == 3){
             Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+            System.out.println("Jugador1 danya a Jugador2");
         }
 
-        //Jugador1 danya a Jugador2
         if (estr1 == 1 && estr2 == 4){
             Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+            System.out.println("Jugador1 danya a Jugador2");
         }
 
-//Jugador accio2
+    //Jugador accio2
 
-
-        //Jugador1 recupera vida
         if (estr1 == 2 && estr2 == 1){
             Jugador1.recuperaVida(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
+            System.out.println("Jugador1 recupera vida");
         }
 
-        //Jugador2 danya a Jugador1 x2
         if (estr1 == 2 && estr2 == 3){
             Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
             Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+            System.out.println("Jugador2 danya a Jugador1 x2");
         }
 
-        //Jugador2 penalitza a Jugador1
         if (estr1 == 2 && estr2 == 4){
             Jugador1.recuperaVida(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
+            System.out.println("Jugador2 penalitza a Jugador1");
         }
 
-//Jugador accio3
+    //Jugador accio3
 
-
-        //Jugador2 danya a Jugador1
         if (estr1 == 3 && estr2 == 1){
             Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+            System.out.println("Jugador2 danya a Jugador1");
         }
 
-        //Jugador1 danya a Jugador2 x2
         if (estr1 == 3 && estr2 == 2){
             Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
             Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+            System.out.println("Jugador1 danya a Jugador2 x2");
         }
 
-        //Jugador2 penalitza a Jugador1
         if (estr1 == 3 && estr2 == 4){
             Jugador1.penalitzacio(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+            System.out.println("Jugador2 penalitza a Jugador1");
         }
 
 
-//Jugador accio4
+    //Jugador accio4
 
-        //Jugador2 danya a Jugador1
         if (estr1 == 4 && estr2 == 1){
             Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+            System.out.println("Jugador2 danya a Jugador1");
         }
 
-        //Jugador1 penalitza a Jugador2
         if (estr1 == 4 && estr2 == 2){
             Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+            System.out.println("Jugador1 penalitza a Jugador2");
         }
 
-        //Jugador1 penalitza a Jugador2
         if (estr1 == 4 && estr2 == 3){
             Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+            System.out.println("Jugador1 penalitza a Jugador2");
         }
-
 
         Jugador1.MostrarEstadistiques();
         Jugador2.MostrarEstadistiques();
@@ -122,24 +111,7 @@ public class Main {
 
         //Triem les estrategies del jugador
         System.out.println("1=Atac, 2=Defensa, 3=Engany, 4=Maniobra");
-        int accioJug = sc.nextInt();
-        switch (accioJug){
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-            case 4:
-
-                break;
-
-        }
-
-        return accioJug;
+        return sc.nextInt();
     }
 
     static int accioAdversari(){
