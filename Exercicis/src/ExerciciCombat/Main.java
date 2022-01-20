@@ -28,13 +28,37 @@ public class Main {
         int estr1 = accioJugador();
         int estr2 = accioAdversari();
 
+//1
+        //Jugador2 recupera vida
         if (estr1 == 1 && estr2 == 2){
             Jugador2.recuperaVida(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
         }
+
+        //Jugador1 recupera vida
         if (estr1 == 2 && estr2 == 1){
             Jugador1.recuperaVida(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
         }
 
+        //Jugador2 danya a Jugador1
+        if (estr1 == 3 && estr2 == 1){
+            Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+        }
+
+        //Jugador2 danya a Jugador1
+        if (estr1 == 4 && estr2 == 1){
+            Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+        }
+//2
+
+        //Jugador1 danya a Jugador2 x2
+        if (estr1 == 3 && estr2 == 2){
+            Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+            Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+        }
+        if (estr1 == 4 && estr2 == 2){
+            Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+        }
+//3
         Jugador1.MostrarEstadistiques();
         Jugador2.MostrarEstadistiques();
 

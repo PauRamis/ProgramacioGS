@@ -3,7 +3,7 @@ package ExerciciCombat;
 public class Jugador {
     String nom;
     int nivell;
-    int punts;
+    int puntsExp;
     int puntsVida;
     int puntsVidaMax;
     int puntsAtac;
@@ -16,6 +16,7 @@ public class Jugador {
         this.puntsDefensa = puntsDefensa;
         this.puntsVida = 10;
         this.puntsVidaMax = 10;
+        this.puntsExp = 0;
         this.nivell = 0;
     }
 
@@ -38,7 +39,10 @@ public class Jugador {
         System.out.printf("Nom: %s, Atac: %d, Defensa: %d, Vida: %d\n", this.nom, this.puntsAtac, this.puntsDefensa, this.puntsVida);
     }
 
-    void Penalitzacio(int punts) {
+    void penalitzacio(int punts) {
+
+        //Mai pot ser menys de 1
+        if (punts == 0) punts = 1;
 
         //Math.random decidira si restar atac o defensa.
         if (Math.random() < 0.5) {
