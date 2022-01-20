@@ -1,7 +1,7 @@
 package ExerciciCombat;
-
 import java.util.Scanner;
 
+//Aquest es un joc tipus pedra, paper, estisores, però més complexe i amb tematica de RPG.
 public class Main {
     public static void main(String[] args) {
 
@@ -9,50 +9,48 @@ public class Main {
         Jugador Jugador1 = new Jugador("Pau", 10, 5);
         Jugador Jugador2 = new Jugador("Adversari", 5, 15);
 
-        //Aleatoriament es mostra el seu exit, que sirá representat en punts
-        int exit1 = 5;
-        int exit2 = 4;
-
         /*Proves
         Jugador1.MostrarEstadistiques();
-        Jugador1.Penalitzacio(exit1);
+        Jugador1.Penalitzacio(5);
         Jugador1.MostrarEstadistiques();
 
         Jugador2.MostrarEstadistiques();
-        Jugador2.restarVida(exit2);
+        Jugador2.restarVida(5);
         Jugador2.MostrarEstadistiques();
-        Jugador2.recuperaVida(exit2);
+        Jugador2.recuperaVida(5);
         Jugador2.MostrarEstadistiques();
         */
 
-
-
-        String estr1 = "Atac";
-        String estr2 = "Defensa";
-        ronda(Jugador1, estr1, exit1, Jugador2, estr2, exit2);
-
+        ronda(Jugador1, Jugador2);
 
     }
-    static void ronda(Jugador Jugador1, String estr1, int exit1, Jugador Jugador2, String estr2, int exit2){
-        if (estr1.equals("Atac") && estr2.equals("Defensa")){
+    static void ronda(Jugador Jugador1, Jugador Jugador2){
+        int estr1 = accioJugador();
+        int estr2 = accioAdversari();
+
+        if (estr1 == 1 && estr2 == 2){
             Jugador2.recuperaVida(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
         }
-        if (estr1.equals("Defensa") && (estr2.equals("Atac"))){
+        if (estr1 == 2 && estr2 == 1){
             Jugador1.recuperaVida(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
         }
+
         Jugador1.MostrarEstadistiques();
         Jugador2.MostrarEstadistiques();
 
+
+
+        //Guanya el jugador si consegueix matar a l'adverasi abans de morir ell. En el cas contrari, perd.
         if (Jugador1.puntsVida == 0){
             System.out.println("GAME OVER");
-            System.out.println("Guanya Jugador2");
+            System.out.println("Has perdut!");
         } else if (Jugador2.puntsVida == 0){
-            System.out.println("GAME OVER");
-            System.out.println("Guanya Jugador1");
+            System.out.println("FELICITATS");
+            System.out.println("Has guanyat!");
         }
     }
 
-    static void accioJugador(){
+    static int accioJugador(){
         Scanner sc = new Scanner(System.in);
 
         //Triem les estrategies del jugador
@@ -74,9 +72,10 @@ public class Main {
 
         }
 
+        return accioJug;
     }
 
-    static void accioAdversari(){
+    static int accioAdversari(){
         //Triem les estrtategies de la maquina aleatoriament
         double accioAleat = Math.random();
         int accioAdv;
@@ -87,6 +86,8 @@ public class Main {
         else if (accioAleat < 0.75)
             accioAdv = 3;
         else accioAdv = 4;
+
+        return accioAdv;
     }
 
 }
