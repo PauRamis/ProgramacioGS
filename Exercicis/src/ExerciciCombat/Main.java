@@ -1,7 +1,12 @@
 package ExerciciCombat;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        //Primer cream dos jugadors, Jugador1 i Jugador2.
         Jugador Jugador1 = new Jugador("Pau", 10, 5);
         Jugador Jugador2 = new Jugador("Adversari", 5, 15);
 
@@ -22,6 +27,25 @@ public class Main {
         */
 
         //Trien les estrategies
+        System.out.println("1=Atac, 2=Defensa, 3=Engany, 4=Maniobra");
+        int accio = sc.nextInt();
+        switch (accio){
+            case 1:
+
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+
+        }
+
+
         String estr1 = "Atac";
         String estr2 = "Defensa";
         ronda(Jugador1, estr1, exit1, Jugador2, estr2, exit2);
@@ -41,8 +65,7 @@ public class Main {
         if (Jugador1.puntsVida == 0){
             System.out.println("GAME OVER");
             System.out.println("Guanya Jugador2");
-        }
-        if (Jugador2.puntsVida == 0){
+        } else if (Jugador2.puntsVida == 0){
             System.out.println("GAME OVER");
             System.out.println("Guanya Jugador1");
         }
