@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
         //Primer cream dos jugadors, Jugador1 i Jugador2.
         Jugador Jugador1 = new Jugador("Pau", 10, 5);
@@ -26,24 +25,6 @@ public class Main {
         Jugador2.MostrarEstadistiques();
         */
 
-        //Trien les estrategies
-        System.out.println("1=Atac, 2=Defensa, 3=Engany, 4=Maniobra");
-        int accio = sc.nextInt();
-        switch (accio){
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-            case 4:
-
-                break;
-
-        }
 
 
         String estr1 = "Atac";
@@ -70,4 +51,42 @@ public class Main {
             System.out.println("Guanya Jugador1");
         }
     }
+
+    static void accioJugador(){
+        Scanner sc = new Scanner(System.in);
+
+        //Triem les estrategies del jugador
+        System.out.println("1=Atac, 2=Defensa, 3=Engany, 4=Maniobra");
+        int accioJug = sc.nextInt();
+        switch (accioJug){
+            case 1:
+
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+
+        }
+
+    }
+
+    static void accioAdversari(){
+        //Triem les estrtategies de la maquina aleatoriament
+        double accioAleat = Math.random();
+        int accioAdv;
+        if (accioAleat < 0.25)
+            accioAdv = 1;
+        else if (accioAleat < 0.50)
+            accioAdv = 2;
+        else if (accioAleat < 0.75)
+            accioAdv = 3;
+        else accioAdv = 4;
+    }
+
 }
