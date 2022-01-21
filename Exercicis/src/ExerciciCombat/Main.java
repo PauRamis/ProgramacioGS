@@ -6,6 +6,9 @@ public class Main {
     public static void main(String[] args) {
 
         //Primer cream dos jugadors, Jugador1 i Jugador2.
+
+
+
         Jugador Jugador1 = new Jugador("Pau", 10, 5);
         Jugador Jugador2 = new Jugador("Adversari", 5, 15);
 
@@ -127,6 +130,37 @@ public class Main {
         else accioAdv = 4;
 
         return accioAdv;
+    }
+
+    static int triarClaseJugador(){
+        Scanner sc = new Scanner(System.in);
+
+        //Aqui l'usuari triarà la seva clase
+        System.out.println("1 = Gegant (Extremadament resistent pero poc atac)");
+        System.out.println("2 = Orcs (Gran defensa, un atac millorable)");
+        System.out.println("3 = Humà (Estadístiques neutrals i equilibrades)");
+        System.out.println("4 = Elf (Més coneguts pel seu atac que defensa)");
+        System.out.println("5 = Goblin (Tan extremadament letals com febles)");
+        return sc.nextInt();
+
+
+    }
+
+    static int triarClaseAdversari(){
+        //La maquina triara la seva classe aleatoriament
+        double aClassRandomizer = Math.random();
+        int aClass;
+        if (aClassRandomizer < 0.25)
+            aClass = 1;
+        else if (aClassRandomizer < 0.50)
+            aClass = 2;
+        else if (aClassRandomizer < 0.75)
+            aClass = 3;
+        else aClass = 4;
+
+        System.out.print("Adversari ha triat el ");
+        System.out.print(aClass);
+        return aClass;
     }
 
 }

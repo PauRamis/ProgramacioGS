@@ -64,4 +64,26 @@ public class Jugador {
         } return contador;
     }
 
+    void ClaseElegida(int numeroDeClase){
+        if (numeroDeClase == 1){
+            this.puntsAtac = 10;
+            this.puntsDefensa = 40;
+        }
+        if (numeroDeClase == 2){
+            this.puntsAtac = 15;
+            this.puntsDefensa = 35;
+        }
+        if (numeroDeClase == 3){
+            this.puntsAtac = 20;
+            this.puntsDefensa = 30;
+        }
+        if (numeroDeClase == 4){
+            this.puntsAtac = 25;
+            this.puntsDefensa = 25;
+        }
+        if (numeroDeClase == 5){
+            this.puntsAtac = 30;
+            this.puntsDefensa = 20;
+        }
+    }
 }
