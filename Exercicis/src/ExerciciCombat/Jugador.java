@@ -10,10 +10,10 @@ public class Jugador {
     int puntsDefensa;
 
     //Constructors
-    public Jugador(String nom, int puntsAtac, int puntsDefensa) {
+    public Jugador(String nom) {
         this.nom = nom;
-        this.puntsAtac = puntsAtac;
-        this.puntsDefensa = puntsDefensa;
+        this.puntsAtac = 10;
+        this.puntsDefensa = 10;
         this.puntsVida = 10;
         this.puntsVidaMax = 10;
         this.puntsExp = 0;
@@ -36,7 +36,7 @@ public class Jugador {
     }
 
     void MostrarEstadistiques() {
-        System.out.printf("Nom: %s, Atac: %d, Defensa: %d, Vida: %d\n", this.nom, this.puntsAtac, this.puntsDefensa, this.puntsVida);
+        System.out.printf("%s: Atac: %d, Defensa: %d, Vida: %d\n", this.nom, this.puntsAtac, this.puntsDefensa, this.puntsVida);
     }
 
     void penalitzacio(int punts) {
@@ -63,6 +63,7 @@ public class Jugador {
             }
         } return contador;
     }
+
 
     void ClaseElegida(int numeroDeClase){
         if (numeroDeClase == 1){

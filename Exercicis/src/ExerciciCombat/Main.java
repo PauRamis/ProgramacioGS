@@ -7,19 +7,32 @@ public class Main {
 
         //Primer cream dos jugadors, Jugador1 i Jugador2.
 
+        Jugador Jugador1 = new Jugador("Pau");
+        Jugador Jugador2 = new Jugador("Adversari");
 
+        int cJug = triarClaseJugador();
+        int cAdv = triarClaseAdversari();
 
-        Jugador Jugador1 = new Jugador("Pau", 10, 5);
-        Jugador Jugador2 = new Jugador("Adversari", 5, 15);
+        Jugador1.ClaseElegida(cJug);
+        Jugador2.ClaseElegida(cAdv);
+
+        //Mostram a l'usuari les estadistiques dels dos jugadors i començam la ronda
+        Jugador1.MostrarEstadistiques();
+        Jugador2.MostrarEstadistiques();
 
         ronda(Jugador1, Jugador2);
 
+
     }
+
     static void ronda(Jugador Jugador1, Jugador Jugador2){
+        System.out.println("Comença la ronda!");
         int estr1 = accioJugador();
         int estr2 = accioAdversari();
         //Proves
         estr2 = 2;
+
+
         System.out.println("L'adversari ha triat: ");
         System.out.println(estr2);
 
@@ -136,13 +149,13 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         //Aqui l'usuari triarà la seva clase
+        System.out.println("Tria la teva classe preferida");
         System.out.println("1 = Gegant (Extremadament resistent pero poc atac)");
         System.out.println("2 = Orcs (Gran defensa, un atac millorable)");
         System.out.println("3 = Humà (Estadístiques neutrals i equilibrades)");
         System.out.println("4 = Elf (Més coneguts pel seu atac que defensa)");
         System.out.println("5 = Goblin (Tan extremadament letals com febles)");
         return sc.nextInt();
-
 
     }
 
@@ -159,7 +172,7 @@ public class Main {
         else aClass = 4;
 
         System.out.print("Adversari ha triat el ");
-        System.out.print(aClass);
+        System.out.println(aClass);
         return aClass;
     }
 
