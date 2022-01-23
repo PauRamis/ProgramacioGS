@@ -14,8 +14,8 @@ public class Jugador {
         this.nom = nom;
         this.puntsAtac = 10;
         this.puntsDefensa = 10;
-        this.puntsVida = 10;
-        this.puntsVidaMax = 10;
+        this.puntsVida = 20;
+        this.puntsVidaMax = 20;
         this.puntsExp = 0;
         this.nivell = 0;
     }

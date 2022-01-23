@@ -20,106 +20,173 @@ public class Main {
         Jugador1.MostrarEstadistiques();
         Jugador2.MostrarEstadistiques();
 
-        ronda(Jugador1, Jugador2);
+        //Feim 10 rondes. Cada ronda el Jugador guanya experiencia i pot pujar de nivell.
+        for (int i = 0; i < 10; i++) {
+            ronda(Jugador1, Jugador2);
+            Jugador1.recuperaVida(50);
+            Jugador2.recuperaVida(50);
+            Jugador1.puntsExp = Jugador1.puntsExp + 25;
+            if (Jugador1.puntsExp == 100){
+                Jugador1.nivell++;
+                Jugador1.puntsExp = 0;
+                Jugador1.puntsVidaMax = Jugador1.puntsVidaMax + 2;
+                Jugador1.puntsVida = Jugador1.puntsVida + 2;
 
+                System.out.println("Has pujat de nivell!");
+                System.out.println("+2 de vida maxima");
+
+                //Aleatoriament es tria si pujar l'atac o la defensa
+                double nivellAleat = Math.random();
+                if (nivellAleat < 0.50){
+                    Jugador1.puntsAtac++;
+                    System.out.println("+1 d'atac");
+                } else {
+                    Jugador1.puntsDefensa++;
+                    System.out.println("+1 de defensa");
+                }
+            }
+        }
+        System.out.println("El teu resultats són: ");
+        System.out.printf("Nivell: %s Punts d'Experiencia: %d\n", Jugador1.nivell, Jugador1.puntsExp);
 
     }
 
+
+
     static void ronda(Jugador Jugador1, Jugador Jugador2){
-        System.out.println("Comença la ronda!");
-        int estr1 = accioJugador();
-        int estr2 = accioAdversari();
-        //Proves
-        estr2 = 2;
+        while (!gameEnd(Jugador1, Jugador2)){
+            System.out.println("Tria la teva acció!");
+            int estr1 = accioJugador();
+            int estr2 = accioAdversari();
+            //Proves
+            estr2 = 3;
 
+            System.out.println("L'adversari ha triat: ");
+            System.out.println(estr2);
 
-        System.out.println("L'adversari ha triat: ");
-        System.out.println(estr2);
+            switch (estr1) {
+                //Jugador accio 1
+                case 1:
 
-    //Jugador accio 1
+                    if (estr2 == 1) {
+                        Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+                        Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+                        System.out.println("Jugadors 1 y 2 es danyen mutuament");
+                    }
 
-        if (estr1 == 1 && estr2 == 2){
-            Jugador2.recuperaVida(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
-            System.out.println("Jugador2 recupera vida");
+                    if (estr2 == 2) {
+                        Jugador2.recuperaVida(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
+                        System.out.println("Jugador2 recupera vida");
+                    }
+
+                    if (estr2 == 3) {
+                        Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+                        System.out.println("Jugador1 danya a Jugador2");
+                    }
+
+                    if (estr2 == 4) {
+                        Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+                        System.out.println("Jugador1 danya a Jugador2");
+                    }
+                    break;
+
+                //Jugador accio2
+                case 2:
+                    if (estr2 == 1) {
+                        Jugador1.recuperaVida(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
+                        System.out.println("Jugador1 recupera vida");
+                    }
+
+                    if (estr2 == 2) {
+                        Jugador1.recuperaVida(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
+                        Jugador2.recuperaVida(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
+                        System.out.println("Jugador1 y Jugador2 recuperan vida");
+                    }
+
+                    if (estr2 == 3) {
+                        Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+                        Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+                        System.out.println("Jugador2 danya a Jugador1 x2");
+                    }
+
+                    if (estr2 == 4) {
+                        Jugador1.penalitzacio(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
+                        System.out.println("Jugador2 penalitza a Jugador1");
+                    }
+                    break;
+
+                //Jugador accio3
+                case 3:
+
+                    if (estr2 == 1) {
+                        Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+                        System.out.println("Jugador2 danya a Jugador1");
+                    }
+
+                    if (estr2 == 2) {
+                        Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+                        Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+                        System.out.println("Jugador1 danya a Jugador2 x2");
+                    }
+
+                    if (estr2 == 3) {
+                        Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+                        Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+                        System.out.println("Jugadors 1 y 2 es danyen mutuament");
+                    }
+
+                    if (estr2 == 4) {
+                        Jugador1.penalitzacio(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+                        System.out.println("Jugador2 penalitza a Jugador1");
+                    }
+                    break;
+
+                //Jugador accio4
+                case 4:
+                    if (estr2 == 1) {
+                        Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+                        System.out.println("Jugador2 danya a Jugador1");
+                    }
+
+                    if (estr2 == 2) {
+                        Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+                        System.out.println("Jugador1 penalitza a Jugador2");
+                    }
+
+                    if (estr2 == 3) {
+                        Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+                        System.out.println("Jugador1 penalitza a Jugador2");
+                    }
+
+                    if (estr2 == 4) {
+                        Jugador1.penalitzacio(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+                        Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+                        System.out.println("Jugador1 y Jugador2 son penalitzats");
+                    }
+                    break;
+            }
+
+            //Mostram com han quedat les estadistiques de cada jugador
+            Jugador1.MostrarEstadistiques();
+            Jugador2.MostrarEstadistiques();
         }
+    }
 
-        if (estr1 == 1 && estr2 == 3){
-            Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
-            System.out.println("Jugador1 danya a Jugador2");
-        }
-
-        if (estr1 == 1 && estr2 == 4){
-            Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
-            System.out.println("Jugador1 danya a Jugador2");
-        }
-
-    //Jugador accio2
-
-        if (estr1 == 2 && estr2 == 1){
-            Jugador1.recuperaVida(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
-            System.out.println("Jugador1 recupera vida");
-        }
-
-        if (estr1 == 2 && estr2 == 3){
-            Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
-            Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
-            System.out.println("Jugador2 danya a Jugador1 x2");
-        }
-
-        if (estr1 == 2 && estr2 == 4){
-            Jugador1.recuperaVida(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
-            System.out.println("Jugador2 penalitza a Jugador1");
-        }
-
-    //Jugador accio3
-
-        if (estr1 == 3 && estr2 == 1){
-            Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
-            System.out.println("Jugador2 danya a Jugador1");
-        }
-
-        if (estr1 == 3 && estr2 == 2){
-            Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
-            Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
-            System.out.println("Jugador1 danya a Jugador2 x2");
-        }
-
-        if (estr1 == 3 && estr2 == 4){
-            Jugador1.penalitzacio(Jugador2.TiraMonedes(Jugador2.puntsAtac));
-            System.out.println("Jugador2 penalitza a Jugador1");
-        }
-
-
-    //Jugador accio4
-
-        if (estr1 == 4 && estr2 == 1){
-            Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
-            System.out.println("Jugador2 danya a Jugador1");
-        }
-
-        if (estr1 == 4 && estr2 == 2){
-            Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsAtac));
-            System.out.println("Jugador1 penalitza a Jugador2");
-        }
-
-        if (estr1 == 4 && estr2 == 3){
-            Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsAtac));
-            System.out.println("Jugador1 penalitza a Jugador2");
-        }
-
-        Jugador1.MostrarEstadistiques();
-        Jugador2.MostrarEstadistiques();
-
-
-
+    static boolean gameEnd(Jugador Jugador1, Jugador Jugador2){
         //Guanya el jugador si consegueix matar a l'adverasi abans de morir ell. En el cas contrari, perd.
+        boolean end = false;
         if (Jugador1.puntsVida == 0){
             System.out.println("GAME OVER");
             System.out.println("Has perdut!");
+            end = true;
+            System.exit(0);
         } else if (Jugador2.puntsVida == 0){
             System.out.println("FELICITATS");
             System.out.println("Has guanyat!");
+            end = true;
         }
+
+        return end;
     }
 
     static int accioJugador(){
