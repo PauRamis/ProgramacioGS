@@ -4,11 +4,15 @@ import java.util.Scanner;
 //Aquest es un joc tipus pedra, paper, estisores, però més complexe i amb tematica de RPG.
 public class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
         //Primer cream dos jugadors, Jugador1 i Jugador2.
-
-        Jugador Jugador1 = new Jugador("Pau");
-        Jugador Jugador2 = new Jugador("Adversari");
+        System.out.println("Nombra el teu Personatge:");
+        String nomJ = sc.nextLine();
+        Jugador Jugador1 = new Jugador(nomJ);
+        System.out.println("Nombra el teu Adversari:");
+        String nomA = sc.nextLine();
+        Jugador Jugador2 = new Jugador(nomA);
 
         int cJug = triarClaseJugador();
         int cAdv = triarClaseAdversari();
@@ -68,23 +72,19 @@ public class Main {
             switch (estr1) {
                 //Jugador accio 1
                 case 1:
-
                     if (estr2 == 1) {
                         Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
                         Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
                         System.out.println("Jugadors 1 y 2 es danyen mutuament");
                     }
-
                     if (estr2 == 2) {
                         Jugador2.recuperaVida(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
                         System.out.println("Jugador2 recupera vida");
                     }
-
                     if (estr2 == 3) {
                         Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
                         System.out.println("Jugador1 danya a Jugador2");
                     }
-
                     if (estr2 == 4) {
                         Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
                         System.out.println("Jugador1 danya a Jugador2");
@@ -97,19 +97,16 @@ public class Main {
                         Jugador1.recuperaVida(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
                         System.out.println("Jugador1 recupera vida");
                     }
-
                     if (estr2 == 2) {
                         Jugador1.recuperaVida(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
                         Jugador2.recuperaVida(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
                         System.out.println("Jugador1 y Jugador2 recuperan vida");
                     }
-
                     if (estr2 == 3) {
                         Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
                         Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
                         System.out.println("Jugador2 danya a Jugador1 x2");
                     }
-
                     if (estr2 == 4) {
                         Jugador1.penalitzacio(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
                         System.out.println("Jugador2 penalitza a Jugador1");
@@ -118,24 +115,20 @@ public class Main {
 
                 //Jugador accio3
                 case 3:
-
                     if (estr2 == 1) {
                         Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
                         System.out.println("Jugador2 danya a Jugador1");
                     }
-
                     if (estr2 == 2) {
                         Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
                         Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
                         System.out.println("Jugador1 danya a Jugador2 x2");
                     }
-
                     if (estr2 == 3) {
                         Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
                         Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
                         System.out.println("Jugadors 1 y 2 es danyen mutuament");
                     }
-
                     if (estr2 == 4) {
                         Jugador1.penalitzacio(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
                         System.out.println("Jugador2 penalitza a Jugador1");
@@ -148,17 +141,14 @@ public class Main {
                         Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
                         System.out.println("Jugador2 danya a Jugador1");
                     }
-
                     if (estr2 == 2) {
                         Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
                         System.out.println("Jugador1 penalitza a Jugador2");
                     }
-
                     if (estr2 == 3) {
                         Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
                         System.out.println("Jugador1 penalitza a Jugador2");
                     }
-
                     if (estr2 == 4) {
                         Jugador1.penalitzacio(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
                         Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
