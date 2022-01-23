@@ -46,11 +46,14 @@ public class Main {
                 }
             }
         }
-        System.out.println("El teu resultats són: ");
-        System.out.printf("Nivell: %s Punts d'Experiencia: %d\n", Jugador1.nivell, Jugador1.puntsExp);
-
+        resultats(Jugador1.nivell, Jugador1.puntsExp);
     }
 
+    //Cuan el joc acaba, perque has guanyat 10 vegades o has mort, es mostren els teus resultats.
+    private static void resultats(int nivell, int puntsExp) {
+        System.out.println("El teu resultats són: ");
+        System.out.printf("Nivell: %s Punts d'Experiencia: %d\n", nivell, puntsExp);
+    }
 
 
     static void ronda(Jugador Jugador1, Jugador Jugador2){
@@ -179,13 +182,14 @@ public class Main {
             System.out.println("GAME OVER");
             System.out.println("Has perdut!");
             end = true;
+            resultats(Jugador1.nivell, Jugador1.puntsExp);
             System.exit(0);
+
         } else if (Jugador2.puntsVida == 0){
             System.out.println("FELICITATS");
             System.out.println("Has guanyat!");
             end = true;
         }
-
         return end;
     }
 
