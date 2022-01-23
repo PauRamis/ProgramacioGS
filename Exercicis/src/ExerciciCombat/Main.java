@@ -61,8 +61,6 @@ public class Main {
             System.out.println("Tria la teva acció!");
             int estr1 = accioJugador();
             int estr2 = accioAdversari();
-            //Proves
-            estr2 = 3;
 
             System.out.println("L'adversari ha triat: ");
             System.out.println(estr2);
@@ -139,7 +137,7 @@ public class Main {
                     }
 
                     if (estr2 == 4) {
-                        Jugador1.penalitzacio(Jugador2.TiraMonedes(Jugador2.puntsAtac));
+                        Jugador1.penalitzacio(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
                         System.out.println("Jugador2 penalitza a Jugador1");
                     }
                     break;
@@ -152,18 +150,18 @@ public class Main {
                     }
 
                     if (estr2 == 2) {
-                        Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+                        Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
                         System.out.println("Jugador1 penalitza a Jugador2");
                     }
 
                     if (estr2 == 3) {
-                        Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+                        Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
                         System.out.println("Jugador1 penalitza a Jugador2");
                     }
 
                     if (estr2 == 4) {
-                        Jugador1.penalitzacio(Jugador2.TiraMonedes(Jugador2.puntsAtac));
-                        Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsAtac));
+                        Jugador1.penalitzacio(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
+                        Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
                         System.out.println("Jugador1 y Jugador2 son penalitzats");
                     }
                     break;
