@@ -37,6 +37,26 @@ public class Main {
         resultats(Jugador1.nivell, Jugador1.puntsExp);
     }
 
+    private static void restarPenals(Jugador Jugador1, Jugador Jugador2) {
+        //Anam restant els penals si no son ja 0.
+        if(Jugador1.duradaPenal != 0) Jugador1.duradaPenal -= 1;
+        if(Jugador2.duradaPenal != 0) Jugador2.duradaPenal -= 1;
+
+        //En arribar a 0, es tornen els punts perduts i el penals tornen a 0.
+        if (Jugador1.duradaPenal == 0){
+            Jugador1.puntsAtac += Jugador1.penalAtac;
+            Jugador1.puntsDefensa += Jugador1.penalDefensa;
+            Jugador1.penalDefensa = 0;
+            Jugador1.penalAtac = 0;
+        }
+        if (Jugador2.duradaPenal == 0){
+            Jugador2.puntsAtac += Jugador2.penalAtac;
+            Jugador2.puntsDefensa += Jugador2.penalDefensa;
+            Jugador2.penalDefensa = 0;
+            Jugador2.penalAtac = 0;
+        }
+    }
+
     private static void guanyarExp(Jugador Jugador1) {
         Jugador1.puntsExp = Jugador1.puntsExp + 25;
         if (Jugador1.puntsExp == 100) {
@@ -69,11 +89,11 @@ public class Main {
 
     static void ronda(Jugador Jugador1, Jugador Jugador2) {
         while (!gameEnd(Jugador1, Jugador2)) {
+            restarPenals(Jugador1, Jugador2);
             System.out.println("Tria la teva acció!");
             int estr1 = accioJugador();
             int estr2 = accioAdversari();
-            //Proves
-            estr2 = 2;
+
             System.out.println("L'adversari ha triat: ");
             System.out.println(estr2);
 

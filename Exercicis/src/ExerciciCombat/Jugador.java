@@ -8,6 +8,9 @@ public class Jugador {
     int puntsVidaMax;
     int puntsAtac;
     int puntsDefensa;
+    int duradaPenal;
+    int penalAtac;
+    int penalDefensa;
 
     //Constructors
     public Jugador(String nom) {
@@ -18,6 +21,9 @@ public class Jugador {
         this.puntsVidaMax = 20;
         this.puntsExp = 0;
         this.nivell = 0;
+        this.duradaPenal = 0;
+        this.penalAtac = 0;
+        this.penalDefensa = 0;
     }
 
 
@@ -30,7 +36,7 @@ public class Jugador {
 
     void recuperaVida(int punts) {
         this.puntsVida += punts;
-        if (this.puntsVida > this.puntsVidaMax){
+        if (this.puntsVida > this.puntsVidaMax) {
             this.puntsVida = this.puntsVidaMax;
         }
     }
@@ -40,49 +46,55 @@ public class Jugador {
     }
 
     void penalitzacio(int punts) {
+        //Nomes una penalitzacio a la vegada
+        if (this.duradaPenal == 0) {
+            //Mai pot ser menys de 1
+            if (punts == 0) punts = 1;
 
-        //Mai pot ser menys de 1
-        if (punts == 0) punts = 1;
+            //Dura només 5 turns.
+            this.duradaPenal = 5;
 
-        //Math.random decidira si restar atac o defensa.
-        if (Math.random() < 0.5) {
-            this.puntsAtac -= punts;
-
-        } else {
-            this.puntsDefensa -= punts;
-
-        }
+            //Math.random decidira si restar atac o defensa. Es guardaran el penal per fer el segiment
+            if (Math.random() < 0.5) {
+                this.puntsAtac -= punts;
+                this.penalAtac = punts;
+            } else {
+                this.puntsDefensa -= punts;
+                this.penalDefensa = punts;
+            }
+        } else System.out.println("Nomes una penalitzacio a la vegada");
     }
 
     //TiraMonedes simula tirar una moneda a cara creu tantes vegades com habilitat tengui el jugador, per estabir els punts en una acció. (exit)
-    int TiraMonedes(int repeticions){
+    int TiraMonedes(int repeticions) {
         int contador = 0;
         for (int i = 0; i < repeticions; i++) {
             if (Math.random() < 0.5) {
-            contador++;
+                contador++;
             }
-        } return contador;
+        }
+        return contador;
     }
 
 
-    void ClaseElegida(int numeroDeClase){
-        if (numeroDeClase == 1){
+    void ClaseElegida(int numeroDeClase) {
+        if (numeroDeClase == 1) {
             this.puntsAtac = 10;
             this.puntsDefensa = 40;
         }
-        if (numeroDeClase == 2){
+        if (numeroDeClase == 2) {
             this.puntsAtac = 15;
             this.puntsDefensa = 35;
         }
-        if (numeroDeClase == 3){
+        if (numeroDeClase == 3) {
             this.puntsAtac = 20;
             this.puntsDefensa = 30;
         }
-        if (numeroDeClase == 4){
+        if (numeroDeClase == 4) {
             this.puntsAtac = 25;
             this.puntsDefensa = 25;
         }
-        if (numeroDeClase == 5){
+        if (numeroDeClase == 5) {
             this.puntsAtac = 30;
             this.puntsDefensa = 20;
         }
