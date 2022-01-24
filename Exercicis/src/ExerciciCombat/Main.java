@@ -3,6 +3,8 @@ package ExerciciCombat;
 import java.util.Scanner;
 
 //Aquest es un joc tipus pedra, paper, estisores, però més complexe i amb tematica de RPG.
+//Haura de tenir 10 combats com a maxim i podrem elegir una clase de personatge
+//Cada vegada que guanyem, hauriem de conseguir EXP
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -25,33 +27,37 @@ public class Main {
         Jugador1.MostrarEstadistiques();
         Jugador2.MostrarEstadistiques();
 
-        //Feim 10 rondes. Cada ronda el Jugador guanya experiencia i pot pujar de nivell.
+        //Feim 10 rondes. Cada ronda guanyada el Jugador guanya experiencia i pot pujar de nivell.
         for (int i = 0; i < 10; i++) {
             ronda(Jugador1, Jugador2);
             Jugador1.recuperaVida(50);
             Jugador2.recuperaVida(50);
-            Jugador1.puntsExp = Jugador1.puntsExp + 25;
-            if (Jugador1.puntsExp == 100) {
-                Jugador1.nivell++;
-                Jugador1.puntsExp = 0;
-                Jugador1.puntsVidaMax = Jugador1.puntsVidaMax + 2;
-                Jugador1.puntsVida = Jugador1.puntsVida + 2;
-
-                System.out.println("Has pujat de nivell!");
-                System.out.println("+2 de vida maxima");
-
-                //Aleatoriament es tria si pujar l'atac o la defensa
-                double nivellAleat = Math.random();
-                if (nivellAleat < 0.50) {
-                    Jugador1.puntsAtac++;
-                    System.out.println("+1 d'atac");
-                } else {
-                    Jugador1.puntsDefensa++;
-                    System.out.println("+1 de defensa");
-                }
-            }
+            guanyarExp(Jugador1);
         }
         resultats(Jugador1.nivell, Jugador1.puntsExp);
+    }
+
+    private static void guanyarExp(Jugador Jugador1) {
+        Jugador1.puntsExp = Jugador1.puntsExp + 25;
+        if (Jugador1.puntsExp == 100) {
+            Jugador1.nivell++;
+            Jugador1.puntsExp = 0;
+            Jugador1.puntsVidaMax = Jugador1.puntsVidaMax + 2;
+            Jugador1.puntsVida = Jugador1.puntsVida + 2;
+
+            System.out.println("Has pujat de nivell!");
+            System.out.println("+2 de vida maxima");
+
+            //Aleatoriament es tria si pujar l'atac o la defensa
+            double nivellAleat = Math.random();
+            if (nivellAleat < 0.50) {
+                Jugador1.puntsAtac++;
+                System.out.println("+1 d'atac");
+            } else {
+                Jugador1.puntsDefensa++;
+                System.out.println("+1 de defensa");
+            }
+        }
     }
 
     //Cuan el joc acaba, perque has guanyat 10 vegades o has mort, es mostren els teus resultats.
@@ -66,12 +72,13 @@ public class Main {
             System.out.println("Tria la teva acció!");
             int estr1 = accioJugador();
             int estr2 = accioAdversari();
-
+            //Proves
+            estr2 = 2;
             System.out.println("L'adversari ha triat: ");
             System.out.println(estr2);
 
+            //Diferentes opcions del switch depenguent de la accio del jugador
             switch (estr1) {
-                //Jugador accio 1
                 case 1:
                     if (estr2 == 1) {
                         Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
@@ -82,17 +89,12 @@ public class Main {
                         Jugador2.recuperaVida(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
                         System.out.println("Jugador2 recupera vida");
                     }
-                    if (estr2 == 3) {
-                        Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
-                        System.out.println("Jugador1 danya a Jugador2");
-                    }
-                    if (estr2 == 4) {
+                    if (estr2 == 3 || estr2 == 4) {
                         Jugador2.restarVida(Jugador1.TiraMonedes(Jugador1.puntsAtac));
                         System.out.println("Jugador1 danya a Jugador2");
                     }
                     break;
 
-                //Jugador accio2
                 case 2:
                     if (estr2 == 1) {
                         Jugador1.recuperaVida(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
@@ -114,7 +116,6 @@ public class Main {
                     }
                     break;
 
-                //Jugador accio3
                 case 3:
                     if (estr2 == 1) {
                         Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
@@ -136,20 +137,16 @@ public class Main {
                     }
                     break;
 
-                //Jugador accio4
                 case 4:
                     if (estr2 == 1) {
                         Jugador1.restarVida(Jugador2.TiraMonedes(Jugador2.puntsAtac));
                         System.out.println("Jugador2 danya a Jugador1");
                     }
-                    if (estr2 == 2) {
+                    if (estr2 == 2 || estr2 == 3) {
                         Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
                         System.out.println("Jugador1 penalitza a Jugador2");
                     }
-                    if (estr2 == 3) {
-                        Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
-                        System.out.println("Jugador1 penalitza a Jugador2");
-                    }
+
                     if (estr2 == 4) {
                         Jugador1.penalitzacio(Jugador2.TiraMonedes(Jugador2.puntsDefensa));
                         Jugador2.penalitzacio(Jugador1.TiraMonedes(Jugador1.puntsDefensa));
@@ -223,13 +220,15 @@ public class Main {
         //La maquina triara la seva classe aleatoriament
         double aClassRandomizer = Math.random();
         int aClass;
-        if (aClassRandomizer < 0.25)
+        if (aClassRandomizer < 0.20)
             aClass = 1;
-        else if (aClassRandomizer < 0.50)
+        else if (aClassRandomizer < 0.40)
             aClass = 2;
-        else if (aClassRandomizer < 0.75)
+        else if (aClassRandomizer < 0.60)
             aClass = 3;
-        else aClass = 4;
+        else if (aClassRandomizer < 0.80)
+            aClass = 4;
+        else aClass = 5;
 
         System.out.print("Adversari ha triat el ");
         System.out.println(aClass);

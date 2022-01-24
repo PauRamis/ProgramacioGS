@@ -65,7 +65,7 @@ public class Jugador {
     }
 
 
-    void ClaseElegida(int numeroDeClase){io
+    void ClaseElegida(int numeroDeClase){
         if (numeroDeClase == 1){
             this.puntsAtac = 10;
             this.puntsDefensa = 40;
