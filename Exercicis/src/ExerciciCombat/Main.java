@@ -1,4 +1,5 @@
 package ExerciciCombat;
+
 import java.util.Scanner;
 
 //Aquest es un joc tipus pedra, paper, estisores, però més complexe i amb tematica de RPG.
@@ -30,7 +31,7 @@ public class Main {
             Jugador1.recuperaVida(50);
             Jugador2.recuperaVida(50);
             Jugador1.puntsExp = Jugador1.puntsExp + 25;
-            if (Jugador1.puntsExp == 100){
+            if (Jugador1.puntsExp == 100) {
                 Jugador1.nivell++;
                 Jugador1.puntsExp = 0;
                 Jugador1.puntsVidaMax = Jugador1.puntsVidaMax + 2;
@@ -41,7 +42,7 @@ public class Main {
 
                 //Aleatoriament es tria si pujar l'atac o la defensa
                 double nivellAleat = Math.random();
-                if (nivellAleat < 0.50){
+                if (nivellAleat < 0.50) {
                     Jugador1.puntsAtac++;
                     System.out.println("+1 d'atac");
                 } else {
@@ -60,8 +61,8 @@ public class Main {
     }
 
 
-    static void ronda(Jugador Jugador1, Jugador Jugador2){
-        while (!gameEnd(Jugador1, Jugador2)){
+    static void ronda(Jugador Jugador1, Jugador Jugador2) {
+        while (!gameEnd(Jugador1, Jugador2)) {
             System.out.println("Tria la teva acció!");
             int estr1 = accioJugador();
             int estr2 = accioAdversari();
@@ -163,17 +164,17 @@ public class Main {
         }
     }
 
-    static boolean gameEnd(Jugador Jugador1, Jugador Jugador2){
+    static boolean gameEnd(Jugador Jugador1, Jugador Jugador2) {
         //Guanya el jugador si consegueix matar a l'adverasi abans de morir ell. En el cas contrari, perd.
         boolean end = false;
-        if (Jugador1.puntsVida == 0){
+        if (Jugador1.puntsVida == 0) {
             System.out.println("GAME OVER");
             System.out.println("Has perdut!");
             end = true;
             resultats(Jugador1.nivell, Jugador1.puntsExp);
             System.exit(0);
 
-        } else if (Jugador2.puntsVida == 0){
+        } else if (Jugador2.puntsVida == 0) {
             System.out.println("FELICITATS");
             System.out.println("Has guanyat!");
             end = true;
@@ -181,7 +182,7 @@ public class Main {
         return end;
     }
 
-    static int accioJugador(){
+    static int accioJugador() {
         Scanner sc = new Scanner(System.in);
 
         //Triem les estrategies del jugador
@@ -189,7 +190,7 @@ public class Main {
         return sc.nextInt();
     }
 
-    static int accioAdversari(){
+    static int accioAdversari() {
         //Triem les estrtategies de la maquina aleatoriament
         double accioAleat = Math.random();
         int accioAdv;
@@ -204,7 +205,7 @@ public class Main {
         return accioAdv;
     }
 
-    static int triarClaseJugador(){
+    static int triarClaseJugador() {
         Scanner sc = new Scanner(System.in);
 
         //Aqui l'usuari triarà la seva clase
@@ -218,7 +219,7 @@ public class Main {
 
     }
 
-    static int triarClaseAdversari(){
+    static int triarClaseAdversari() {
         //La maquina triara la seva classe aleatoriament
         double aClassRandomizer = Math.random();
         int aClass;
