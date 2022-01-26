@@ -2,17 +2,22 @@ package ExercicisClasses;
 
 public class Main {
     public static void main(String[] args) {
-        //Numero int
-        Nombre n1 = new Nombre(10);
+        //Primer numero en int
+        Nombre n1 = new Nombre(13);
 
-        //String amb numero romá
-        Nombre n2 = new Nombre("III");
-
-        System.out.println("numero hexadecimal: ");
+        System.out.println("Primer numero en hexadecimal: ");
         System.out.println(n1.hex());
 
-        System.out.println("numero binari: ");
+        System.out.println("Primer numero en binari: ");
         System.out.println(n1.bin());
+
+        //String amb numero romá
+        Nombre n2 = new Nombre("C");
+        System.out.println("Segon numero en hexadecimal: ");
+        System.out.println(n2.hex());
+
+        System.out.println("Segon numero en binari: ");
+        System.out.println(n2.bin());
 
     }
 
