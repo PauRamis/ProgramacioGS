@@ -45,12 +45,12 @@ public class Nombre {
         binari = ompleCeros(binari);
         String result = "";
         for (int i = 0; i < binari.length() / 4; i++) {
-            String grup4 = binari.substring(i*4, i*4*i);
+            String grup4 = binari.substring(i*4, i*4+4);
             result = result + getMaxDigit(grup4);
 
         }
 
-        return binari;
+        return result;
     }
 
     private String getMaxDigit(String grup4) {
