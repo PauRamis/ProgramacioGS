@@ -3,10 +3,12 @@ package ExercicisClasses;
 public class Nombre {
     int valor;
 
+    //Asignam com Valor el numero entrat
     Nombre(int valor) {
         this.valor = valor;
     }
 
+    //Asignam com Valor el numero roma entrat (en decimal)
     Nombre(String s) {
         int result = 0;
         for (int i = 0; i < s.length(); i++) {
@@ -15,17 +17,9 @@ public class Nombre {
         }
         this.valor = result;
 
-    /*    int n = this.valor;
-        int millars = n/1000;
-        n %= 1000;
-        int centers = n/100;
-        n %= 100;
-        int desena = n/10;
-        n %= 10;
-        int unitats = n;
-        */
     }
 
+    //Traducció del roma a numeros per pasar-lo a Nombre(String s)
     private char valorDigitRoma(char c) {
         switch (c){
             case 'I': return 1;
@@ -40,6 +34,7 @@ public class Nombre {
         return 0;
     }
 
+    //Pasam un nombre binari a un nombre en hexadecimal.
     String hex() {
         String binari = this.bin();
         binari = ompleCeros(binari);
@@ -53,6 +48,7 @@ public class Nombre {
         return result;
     }
 
+    //Traducció del binari (4 digits) al hexadecimal per pasar-lo a hex.
     private String getMaxDigit(String grup4) {
         switch (grup4){
             case "0000": return "0";
@@ -73,9 +69,11 @@ public class Nombre {
             case "1111": return "F";
 
         }
+        //"X" es el cas on no hi ha un numero valid
         return "X";
     }
 
+    //Aquesta funció simplement omple els ceros a l'esquerra, per que tenguin 4 digits.
     private String ompleCeros(String binari) {
         int binariLenght = binari.length();
         if (binariLenght % 4 != 0){
@@ -88,9 +86,12 @@ public class Nombre {
 
     }
 
+    //Aquesta es la funció que passa el numeros introduits a binari.
     String bin() {
         String resultat = "";
         int n = this.valor;
+
+        //Aprofita el fet de que els parells acaben en 0 i els inparells en 1 per anar muntant el resultat final
         while (n > 0) {
             int bit = n & 1;
             if (bit == 0) {
