@@ -2,8 +2,15 @@ package ExercicisClasses;
 
 public class Main {
     public static void main(String[] args) {
+        quadratMagic();
+
         //numeros();
-        cartes();
+        //cartes();
+    }
+
+    private static void quadratMagic() {
+        QuadratMagic quadratMagic = new QuadratMagic();
+        quadratMagic.imprimeix(5);
     }
 
     private static void cartes() {
