@@ -11,9 +11,19 @@ public class Nombre {
     //Asignam com Valor el numero roma entrat (en decimal)
     Nombre(String s) {
         int result = 0;
+        int last = 0;
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            result += valorDigitRoma(c);
+            int actual = valorDigitRoma(c);
+            result = result + actual;
+
+            //si es un nombre menor que l'anterior, es resta en comptes de sumar-se
+            if (last > 0 && last < actual){
+                result = result - 2*last;
+            }
+
+            //Guardam el valor actual com a last per la seguent volta del bucle
+            last = actual;
         }
         this.valor = result;
 
