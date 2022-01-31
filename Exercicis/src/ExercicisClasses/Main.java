@@ -3,13 +3,24 @@ package ExercicisClasses;
 public class Main {
     public static void main(String[] args) {
         //quadratMagic();
-        numeros();
+        //numeros();
         //cartes();
+        peix();
     }
 
     private static void quadratMagic() {
         QuadratMagic quadratMagic = new QuadratMagic();
         quadratMagic.imprimeix(5);
+    }
+
+    private static void peix() {
+        Peix p1 = new Peix("a");
+        Peix p2 = new Peix("b");
+        Peix p3 = new Peix("c");
+        System.out.println(p1.getNom());
+        System.out.println(p2.getNom());
+        System.out.println(p3.getNom());
+
     }
 
     private static void cartes() {
