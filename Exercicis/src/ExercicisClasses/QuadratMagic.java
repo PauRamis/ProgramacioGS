@@ -15,4 +15,9 @@ public class QuadratMagic {
             System.out.println();
         }
     }
+
+    //Convertim n en string
+    private int numDigits(int n){
+         return (""+n).length();
+    }
 }
