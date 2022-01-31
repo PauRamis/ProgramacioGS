@@ -9,7 +9,8 @@ public class QuadratMagic {
                     ar[i][j] = ar[i][j-1] + ar[i-1][j];
 
                 } else ar[i][j] = 1;
-                System.out.print(ar[i][j] + " ");
+
+                System.out.printf("% 7d ", ar[i][j]);
             }
             System.out.println();
         }

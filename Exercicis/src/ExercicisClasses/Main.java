@@ -2,10 +2,10 @@ package ExercicisClasses;
 
 public class Main {
     public static void main(String[] args) {
-        //quadratMagic();
+        quadratMagic();
         //numeros();
         //cartes();
-        peix();
+        ///peix();
     }
 
     private static void quadratMagic() {
